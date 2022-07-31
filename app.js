@@ -21,7 +21,9 @@ app.post('/', function (req, res) {
     const lastname = req.body.last;
     const email = req.body.email;
     // console.log(firstname, lastname, email);
-
+    if (firstname === '' || lastname === '' || email === '') {
+        res.sendFile(__dirname + '/failure.html');
+    }
 
     // below is the data we will send to mailchimp to store so store according documentatioin for api 
     const data = {
